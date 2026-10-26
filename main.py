@@ -1,7 +1,10 @@
 from fastapi import FastAPI
-from routing.path_parameters import router
+from routing import path_parameters,query_parameters
+
 app = FastAPI()
-app.include_router(router)
+
+app.include_router(path_parameters.router)
+app.include_router(query_parameters.router)
 
 @app.get("/")
 async def read_root():
